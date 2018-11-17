@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="error_message_generic">Hubo un error en la petición</string>
+    <string name="loading">Loading</string>
+
+
+    <!--SNACKBAR-->
+    <string name="no_network">No tienes conexión</string>
+    <string name="network_unknow">Error de conexión</string>
+</resources>
