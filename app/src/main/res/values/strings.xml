@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="error_message_generic">Hubo un error en la petición</string>
+    <string name="error_message_generic">Ups! An errar was ocurred</string>
     <string name="loading">Loading</string>
 
-
     <!--SNACKBAR-->
-    <string name="no_network">No tienes conexión</string>
-    <string name="network_unknow">Error de conexión</string>
+    <string name="no_network">You don&#39;t have internet conexion</string>
+    <string name="network_unknow">Conexion Error</string>
+
+    <!--LOCATION-->
+    <string name="no_location">Impossible to get your current location</string>
 </resources>
