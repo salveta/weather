@@ -16,7 +16,7 @@ public class Main implements Parcelable {
     private Integer humidity;
     @SerializedName("pressure")
     @Expose
-    private Integer pressure;
+    private Double pressure;
     @SerializedName("temp_min")
     @Expose
     private Double tempMin;
@@ -40,11 +40,11 @@ public class Main implements Parcelable {
         this.humidity = humidity;
     }
 
-    public Integer getPressure() {
+    public Double getPressure() {
         return pressure;
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(Double pressure) {
         this.pressure = pressure;
     }
 
@@ -84,7 +84,7 @@ public class Main implements Parcelable {
     protected Main(Parcel in) {
         this.temp = (Double) in.readValue(Double.class.getClassLoader());
         this.humidity = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.pressure = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.pressure = (Double) in.readValue(Integer.class.getClassLoader());
         this.tempMin = (Double) in.readValue(Double.class.getClassLoader());
         this.tempMax = (Double) in.readValue(Double.class.getClassLoader());
     }

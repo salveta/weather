@@ -3,13 +3,15 @@ package salva.perez.weather.domain.model.forecast;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 import salva.perez.weather.domain.model.weather.Clouds;
 import salva.perez.weather.domain.model.weather.Main;
 import salva.perez.weather.domain.model.weather.Sys;
 import salva.perez.weather.domain.model.weather.Weather;
 import salva.perez.weather.domain.model.weather.Wind;
 
-public class List {
+public class ForecastList {
     @SerializedName("dt")
     @Expose
     private Integer dt;
@@ -18,7 +20,7 @@ public class List {
     private Main main;
     @SerializedName("weather")
     @Expose
-    private java.util.List<Weather> weather = null;
+    private List<Weather> weather = null;
     @SerializedName("clouds")
     @Expose
     private Clouds clouds;
@@ -31,6 +33,16 @@ public class List {
     @SerializedName("dt_txt")
     @Expose
     private String dtTxt;
+
+    private long difDays;
+
+    public long getDifDays() {
+        return difDays;
+    }
+
+    public void setDifDays(long difDays) {
+        this.difDays = difDays;
+    }
 
     public Integer getDt() {
         return dt;
@@ -48,11 +60,11 @@ public class List {
         this.main = main;
     }
 
-    public java.util.List<Weather> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 
-    public void setWeather(java.util.List<Weather> weather) {
+    public void setWeather(List<Weather> weather) {
         this.weather = weather;
     }
 

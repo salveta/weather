@@ -7,6 +7,8 @@ import java.util.List;
 
 import salva.perez.weather.domain.interactor.forecast.ForecastInteractor;
 import salva.perez.weather.domain.interactor.forecast.ForecastInteractorImpl;
+import salva.perez.weather.domain.model.forecast.City;
+import salva.perez.weather.domain.model.forecast.ForecastList;
 import salva.perez.weather.domain.model.weather.CurrentWeather;
 import salva.perez.weather.presentation.Presenter;
 
@@ -16,6 +18,7 @@ public class ForecastPresenter extends Presenter<ForecastPresenter.View> impleme
     private ForecastInteractorImpl mInteractor;
 
     public interface View extends Presenter.View {
+        void showForecast(List<ForecastList> forecastList);
     }
 
     public ForecastPresenter(Context context, Activity activity) {
@@ -44,8 +47,9 @@ public class ForecastPresenter extends Presenter<ForecastPresenter.View> impleme
     }
 
     @Override
-    public void onForecastSuccess(CurrentWeather weather) {
+    public void onForecastSuccess(City weather) {
         mView.showHideLoadingView(false);
+        mView.showForecast(weather.getList());
     }
 
     @Override

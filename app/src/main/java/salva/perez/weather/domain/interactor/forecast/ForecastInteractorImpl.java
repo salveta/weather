@@ -8,6 +8,7 @@ import retrofit2.Response;
 import salva.perez.weather.data.forecast.ForecastRepository;
 import salva.perez.weather.domain.api.Api;
 import salva.perez.weather.domain.interactor.AbstractInteractor;
+import salva.perez.weather.domain.model.forecast.City;
 import salva.perez.weather.domain.model.weather.CurrentWeather;
 
 public class ForecastInteractorImpl extends AbstractInteractor implements ForecastInteractor {
@@ -47,7 +48,7 @@ public class ForecastInteractorImpl extends AbstractInteractor implements Foreca
         clearComposite();
     }
 
-    private void processForecast(Response<CurrentWeather> response) {
+    private void processForecast(Response<City> response) {
         if (response.isSuccessful()) {
             notifyWeatherDone(response.body());
         } else {
@@ -55,7 +56,7 @@ public class ForecastInteractorImpl extends AbstractInteractor implements Foreca
         }
     }
 
-    private void notifyWeatherDone(CurrentWeather weather) {
+    private void notifyWeatherDone(City weather) {
         if (mCallback != null) {
             mCallback.onForecastSuccess(weather);
         }

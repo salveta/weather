@@ -53,7 +53,7 @@ public class MainActivity extends GenericActivity implements MainPresenter.View 
     @Override
     public void showWeather(CurrentWeather currentWeather) {
         tx_city_weather.setText(getString(R.string.current_day, currentWeather.getName()));
-        tx_max_temperature.setText(String.valueOf(currentWeather.getMain().getTempMax()));
+        tx_max_temperature.setText(getString(R.string.degrees, String.valueOf(currentWeather.getMain().getTempMax())));
 
         Picasso.with(MainActivity.this)
                 .load(Api.ICON_URL + currentWeather.getWeather().get(WEATHER_CONDITION_ID).getIcon() + Api.IMAGE_FORMAT)

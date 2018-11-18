@@ -3,6 +3,8 @@ package salva.perez.weather.domain.model.forecast;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 import salva.perez.weather.domain.model.weather.Coord;
 
 public class City {
@@ -29,7 +31,7 @@ public class City {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<List> list = null;
+    private List<ForecastList> list = null;
 
     public Integer getId() {
         return id;
@@ -87,11 +89,11 @@ public class City {
         this.cnt = cnt;
     }
 
-    public java.util.List<List> getList() {
+    public List<ForecastList> getList() {
         return list;
     }
 
-    public void setList(java.util.List<List> list) {
+    public void setList(List<ForecastList> list) {
         this.list = list;
     }
 }

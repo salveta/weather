@@ -10,6 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import salva.perez.weather.domain.api.Api;
+import salva.perez.weather.domain.model.forecast.City;
 import salva.perez.weather.domain.model.weather.CurrentWeather;
 import salva.perez.weather.domain.rest.RetrofitAdapter;
 
@@ -49,6 +50,6 @@ public class ForecastRepository {
 
     public interface ForecastRepositoryService {
         @GET(Api.ENDPOINT.FORECAST)
-        Single<Response<CurrentWeather>> getForecast(@Query("id") int cityId, @Query("units") String units, @Query("appid") String appid);
+        Single<Response<City>> getForecast(@Query("id") int cityId, @Query("units") String units, @Query("appid") String appid);
     }
 }
