@@ -28,7 +28,7 @@ public class MainInteractorImpl extends AbstractInteractor implements MainIntera
         mCompositeDisposable.add(
                 WeatherRepository.getInstance(mContext)
                         .getService()
-                        .getCurrentWeather(location.getLatitude(), location.getLongitude(), Api.API_KEY)
+                        .getCurrentWeather(location.getLatitude(), location.getLongitude(), Api.UNITS, Api.API_KEY)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(response -> {

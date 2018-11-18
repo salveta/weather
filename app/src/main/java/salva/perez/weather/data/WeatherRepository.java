@@ -48,6 +48,6 @@ public class WeatherRepository {
 
     public interface WeatherRepositoryService {
         @GET(Api.ENDPOINT.CURRENT_WEATHER)
-        Single<Response<CurrentWeather>> getCurrentWeather(@Query("lat") double latitude, @Query("lon") double longitude, @Query("appid") String appid);
+        Single<Response<CurrentWeather>> getCurrentWeather(@Query("lat") double latitude, @Query("lon") double longitude, @Query("units") String units, @Query("appid") String appid);
     }
 }
