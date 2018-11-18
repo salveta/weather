@@ -52,4 +52,7 @@ dependencies {
 
     //Network
     implementation 'com.github.pwittchen:reactivenetwork-rx2:0.12.3'
+
+    // IMAGES
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }

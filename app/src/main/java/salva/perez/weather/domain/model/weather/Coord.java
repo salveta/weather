@@ -1,4 +1,4 @@
-package salva.perez.weather.domain.model;
+package salva.perez.weather.domain.model.weather;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,7 +6,8 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Coord implements Parcelable{
+public class
+Coord implements Parcelable{
     @SerializedName("lon")
     @Expose
     private double lon;

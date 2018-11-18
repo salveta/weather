@@ -1,4 +1,4 @@
-package salva.perez.weather.domain.model;
+package salva.perez.weather.domain.model.weather;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -8,7 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Weather implements Serializable, Parcelable {
+public class
+Weather implements Serializable, Parcelable {
 
     @SerializedName("id")
     @Expose

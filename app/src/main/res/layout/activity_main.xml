@@ -5,5 +5,51 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tx_city_weather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_20"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_32">
+            <ImageView
+                android:id="@+id/im_icon_detail"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/margin_16">
+                    <TextView
+                        android:id="@+id/tx_max_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"/>
+                </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_weather_next_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next_five_days"
+            android:layout_marginTop="@dimen/margin_16"/>
+    </LinearLayout>
+
     <include layout="@layout/generic_loading_layout"/>
 </RelativeLayout>

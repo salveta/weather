@@ -1,13 +1,14 @@
-package salva.perez.weather.data;
+package salva.perez.weather.data.weather;
 
 import android.content.Context;
+
 import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import salva.perez.weather.domain.api.Api;
-import salva.perez.weather.domain.model.CurrentWeather;
+import salva.perez.weather.domain.model.weather.CurrentWeather;
 import salva.perez.weather.domain.rest.RetrofitAdapter;
 
 public class WeatherRepository {

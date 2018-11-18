@@ -11,7 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import salva.perez.weather.data.manager.WeatherLocationManager;
 import salva.perez.weather.domain.interactor.main.MainInteractor;
 import salva.perez.weather.domain.interactor.main.MainInteractorImpl;
-import salva.perez.weather.domain.model.CurrentWeather;
+import salva.perez.weather.domain.model.weather.CurrentWeather;
 import salva.perez.weather.presentation.Presenter;
 
 import static salva.perez.weather.app.utils.Utils.REQUEST_PERMISSIONS.REQUEST_PERMISSION_ACCESS_COARSE_LOCATION;
