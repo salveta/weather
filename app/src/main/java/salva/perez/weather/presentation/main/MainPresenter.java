@@ -11,9 +11,10 @@ import android.support.v4.app.ActivityCompat;
 import salva.perez.weather.data.manager.WeatherLocationManager;
 import salva.perez.weather.domain.interactor.main.MainInteractor;
 import salva.perez.weather.domain.interactor.main.MainInteractorImpl;
+import salva.perez.weather.domain.model.CurrentWeather;
 import salva.perez.weather.presentation.Presenter;
 
-import static salva.perez.weather.app.Utils.REQUEST_PERMISSIONS.REQUEST_PERMISSION_ACCESS_COARSE_LOCATION;
+import static salva.perez.weather.app.utils.Utils.REQUEST_PERMISSIONS.REQUEST_PERMISSION_ACCESS_COARSE_LOCATION;
 
 
 public class MainPresenter extends Presenter<MainPresenter.View> implements MainInteractor.MainCallback{
@@ -22,6 +23,7 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
 
     public interface View extends Presenter.View {
         void getUserLocation(Location location);
+        void showWeather(CurrentWeather currentWeather);
     }
 
     public MainPresenter(Context context, Activity activity) {
@@ -34,6 +36,7 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
         super.create();
         mInteractor.run();
         mView.initView();
+        mView.showHideLoadingView(true);
         getUserLocationPermission();
     }
 
@@ -44,17 +47,21 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
     }
 
     public void getWeatherLocation(Location location){
-
+        if(location != null) {
+            mInteractor.getCurrentWeather(location);
+        }
     }
 
     @Override
-    public void onWeatherSuccess() {
-
+    public void onWeatherSuccess(CurrentWeather currentWeather) {
+        mView.showHideLoadingView(false);
+        mView.showWeather(currentWeather);
     }
 
     @Override
     public void onWeatherError() {
-
+        mView.showHideLoadingView(false);
+        showErrorMessage();
     }
 
     //PERMISSIONS

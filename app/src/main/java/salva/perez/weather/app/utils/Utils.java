@@ -1,4 +1,4 @@
-package salva.perez.weather.app;
+package salva.perez.weather.app.utils;
 
 public class Utils {
 

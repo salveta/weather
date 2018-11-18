@@ -46,7 +46,7 @@ public class WeatherLocationManager {
                     }
                 }
             }else{
-                //TODO imposible obtener locationManager
+                Toast.makeText(mContext, mContext.getString(R.string.app_name), Toast.LENGTH_SHORT).show();
             }
         }catch (SecurityException exception){
             exception.printStackTrace();

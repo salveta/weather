@@ -18,7 +18,7 @@ import salva.perez.weather.R;
 import salva.perez.weather.presentation.Presenter;
 
 
-public abstract class GenericActivity extends AppCompatActivity implements View.OnClickListener, Presenter.View {
+public abstract class GenericActivity extends AppCompatActivity implements Presenter.View {
 
     // Binder
     protected Unbinder mUnbinder;
@@ -53,21 +53,12 @@ public abstract class GenericActivity extends AppCompatActivity implements View.
     @Override
     protected void onResume() {
         super.onResume();
-
-        if (mRootLayout != null) {
-            mRootLayout.setOnClickListener(this);
-        }
-
         checkNetworkConnectivity();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-        if (mRootLayout != null) {
-            mRootLayout.setOnClickListener(null);
-        }
     }
 
     @Override
@@ -84,12 +75,6 @@ public abstract class GenericActivity extends AppCompatActivity implements View.
 
         if (mUnbinder != null) {
             mUnbinder.unbind();
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == android.R.id.content) {
         }
     }
 
