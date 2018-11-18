@@ -11,13 +11,13 @@ public class
 Rain implements Parcelable{
     @SerializedName("3h")
     @Expose
-    private Integer _3h;
+    private double _3h;
 
-    public Integer get3h() {
+    public double get3h() {
         return _3h;
     }
 
-    public void set3h(Integer _3h) {
+    public void set3h(double _3h) {
         this._3h = _3h;
     }
 

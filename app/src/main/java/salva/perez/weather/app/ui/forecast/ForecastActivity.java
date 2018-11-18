@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
@@ -65,5 +66,10 @@ public class ForecastActivity extends GenericActivity implements ForecastPresent
     @Override
     public void showForecast(List<ForecastList> forecastList) {
         mAdapter.updateList(forecastList);
+    }
+
+    @Override
+    public void onForecastError() {
+        Toast.makeText(ForecastActivity.this, getString(R.string.error_message_generic), Toast.LENGTH_SHORT).show();
     }
 }

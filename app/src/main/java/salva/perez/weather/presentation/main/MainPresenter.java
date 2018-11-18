@@ -7,7 +7,10 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 
+import salva.perez.weather.R;
+import salva.perez.weather.app.ui.forecast.ForecastActivity;
 import salva.perez.weather.data.manager.WeatherLocationManager;
 import salva.perez.weather.domain.interactor.main.MainInteractor;
 import salva.perez.weather.domain.interactor.main.MainInteractorImpl;
@@ -97,6 +100,7 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             getUserLocationPermission();
         }else{
+            Toast.makeText(mContext, mContext.getString(R.string.permission_needed), Toast.LENGTH_SHORT).show();
             requestGPSPermission();
         }
     }

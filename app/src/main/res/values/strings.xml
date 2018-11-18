@@ -16,4 +16,5 @@
 
     <!--LOCATION-->
     <string name="no_location">Something was wrong trying to get the current location</string>
+    <string name="permission_needed">You need to accept the permissions to can get your local weather</string>
 </resources>

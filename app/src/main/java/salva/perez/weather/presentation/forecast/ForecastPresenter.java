@@ -19,6 +19,7 @@ public class ForecastPresenter extends Presenter<ForecastPresenter.View> impleme
 
     public interface View extends Presenter.View {
         void showForecast(List<ForecastList> forecastList);
+        void onForecastError();
     }
 
     public ForecastPresenter(Context context, Activity activity) {
@@ -55,6 +56,7 @@ public class ForecastPresenter extends Presenter<ForecastPresenter.View> impleme
     @Override
     public void onForecastError() {
         mView.showHideLoadingView(false);
+        mView.onForecastError();
     }
 }
 
