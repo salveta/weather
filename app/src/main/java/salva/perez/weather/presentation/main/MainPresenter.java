@@ -10,8 +10,11 @@ import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
 import salva.perez.weather.R;
+import salva.perez.weather.app.navigator.Navigator;
 import salva.perez.weather.app.ui.forecast.ForecastActivity;
+import salva.perez.weather.app.ui.main.MainActivity;
 import salva.perez.weather.data.manager.WeatherLocationManager;
+import salva.perez.weather.data.weather.WeatherRepository;
 import salva.perez.weather.domain.interactor.main.MainInteractor;
 import salva.perez.weather.domain.interactor.main.MainInteractorImpl;
 import salva.perez.weather.domain.model.weather.CurrentWeather;
@@ -53,6 +56,13 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
         if(location != null) {
             mInteractor.getCurrentWeather(location);
         }
+    }
+
+    public void openForecast(){
+        if(WeatherRepository.getInstance(mContext).getWeather() != null) {
+            Navigator.MAIN.openForecast(mContext, WeatherRepository.getInstance(mContext).getWeather().getId());
+        }
+
     }
 
     @Override
@@ -100,8 +110,8 @@ public class MainPresenter extends Presenter<MainPresenter.View> implements Main
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             getUserLocationPermission();
         }else{
-            Toast.makeText(mContext, mContext.getString(R.string.permission_needed), Toast.LENGTH_SHORT).show();
-            requestGPSPermission();
+            mView.showHideLoadingView(false);
+            Toast.makeText(mContext, mContext.getString(R.string.permission_needed), Toast.LENGTH_LONG).show();
         }
     }
 

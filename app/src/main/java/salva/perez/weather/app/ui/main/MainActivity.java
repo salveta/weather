@@ -72,6 +72,6 @@ public class MainActivity extends GenericActivity implements MainPresenter.View 
 
     @OnClick(R.id.btn_weather_next_days)
     public void onClickNextDays(){
-        Navigator.MAIN.openForecast(MainActivity.this, WeatherRepository.getInstance(MainActivity.this).getWeather().getId());
+        ((MainPresenter) mPresenter).openForecast();
     }
 }
